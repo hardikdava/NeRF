@@ -1,5 +1,6 @@
 # NeRF (Neural Radiance Fields)
-A template repo holding our common setup for a python project.
+
+This is a implementation of NeRF of [this](https://arxiv.org/pdf/2003.08934.pdf) paper.
 
 
 ## Download Sample Data:
