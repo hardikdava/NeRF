@@ -30,5 +30,5 @@ or for development
 pip install -e ".[dev]"
 ```
 
-Please visit deployment guidelines for integrating models into production.
+Please visit [deployment guideline](https://github.com/hardikdava/NeRF-Exp/blob/main/DEPLOYMENT.md) for integrating models into production.
 
