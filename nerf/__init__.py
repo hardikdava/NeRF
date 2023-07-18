@@ -1,10 +1,10 @@
 __version__ = "0.0.1"
 
 
-from nerf.predictor import Predictor
-from nerf.validator import Validator
-from nerf.trainer import Trainer
-from nerf.exporter import Exporter
+from nerf.model.predictor import Predictor
+from nerf.model.validator import Validator
+from nerf.model.trainer import Trainer
+from nerf.model.exporter import Exporter
 
 from nerf.dataset.data_loader import LoadDataset
 
