@@ -1,6 +1,13 @@
 numpy
 opencv-python
 supervision
+pyyaml
 torch
 torchvision
+matplotlib
+tensorboard
+tqdm
+imageio
+imageio-ffmpeg
+
 # onnx
