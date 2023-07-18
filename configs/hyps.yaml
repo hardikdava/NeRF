@@ -1,0 +1,5 @@
+# Data Augmentation Configuration and hyper parameters
+# It is good to have in a seperate file for experiment management
+
+lrate = ""
+lrate_decay = 500

@@ -41,13 +41,28 @@ class _RepeatSampler:
             yield from iter(self.sampler)
 
 
-class LoadDatset:
+def create_dataloader(**kwargs):
+    dataset = LoadDataset(**kwargs)
+    loader = DataLoader
+    return loader(dataset, None, None, None), dataset
 
-    def __init__(self, data_dir, input_shape=800):
-        self.input_shape = input_shape
-        image_list = list_files_with_extensions(directory=data_dir, extensions=IMG_FORMATS)
-        self.images = [cv2.imread(image_path) for image_path in image_list]
 
-    def get_data(self):
-        return self.images, 
+class LoadDataset:
 
+    def __init__(self, **kwargs):
+        """
+        Initialize Dataset based on different type e.g. blender, liff, etc
+        """
+        pass
+
+    def __len__(self):
+        """
+        return total number of data in instance
+        """
+        return
+
+    def __getitem__(self, index):
+        """
+        iterator over dataset
+        """
+        return
