@@ -1,0 +1,14 @@
+# Training Session Configuration
+
+experiment : "exp"
+experiment_dir : "logs"
+epochs : 1
+batch : 16
+input_size : 800
+resume : False
+dataset_type : blender
+data_dir : "data/nerf_synthetic/lego"
+
+
+
+

@@ -13,3 +13,12 @@ class Exporter:
         """
         pass
 
+    def tensorflow_saved_model(self):
+        pass
+
+    def tensorrt_engine(self):
+        pass
+
+    def openvino_xml(self):
+        pass
+
