@@ -1,0 +1,6 @@
+numpy
+opencv-python
+supervision
+torch
+torchvision
+# onnx
