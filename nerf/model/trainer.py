@@ -1,14 +1,15 @@
-from typing import Union
-from pathlib import Path
 import argparse
+from pathlib import Path
+from typing import Union
+
 import torch
-from nerf.nn.model import NeRF
+
 from nerf.dataset.data_loader import create_dataloader
+from nerf.nn.modules import NeRF
 from nerf.utils.logger import Logger
 
 
 class Trainer:
-
     def __init__(self, cfg="configs/default.yaml"):
         self.cfg = self._get_config()
         self.model = NeRF()
@@ -83,10 +84,13 @@ class Trainer:
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cfg', type=str, default='', help='model.yaml path')
-    parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
+    parser.add_argument("--cfg", type=str, default="", help="model.yaml path")
+    parser.add_argument(
+        "--device", default="", help="cuda device, i.e. 0 or 0,1,2,3 or cpu"
+    )
 
     return parser.parse_args()
+
 
 if __name__ == "__main__":
     pass

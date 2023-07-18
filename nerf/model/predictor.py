@@ -1,6 +1,7 @@
+from nerf.nn.modules import NeRF
+
 
 class Predictor:
-
     def __init__(self, model_path: str):
         pass
 
@@ -15,3 +16,12 @@ class Predictor:
         """
         Useful for batch prediction
         """
+        pass
+
+    def annotate(self):
+        """
+        Plot labels if needed
+        """
+
+    def generate_mesh(self):
+        pass

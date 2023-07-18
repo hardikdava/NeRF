@@ -1,4 +1,2 @@
-
-
 def visualizer():
     pass

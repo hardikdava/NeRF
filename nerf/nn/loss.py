@@ -1,5 +1,3 @@
-
-
 def ComputerLoss(predictions, taget):
     """
     Define loss function here

@@ -1,21 +1,21 @@
-from torch.utils.data import DataLoader, Dataset, dataloader, distributed
-import numpy as np
-from nerf.utils.file import list_files_with_extensions
-
 import cv2
+import numpy as np
+from torch.utils.data import DataLoader, Dataset, dataloader, distributed
+
+from nerf.utils.file import list_files_with_extensions
 
 IMG_FORMATS = ["png", "jpg", "jpeg", "JPG"]
 
 
 class InfiniteDataLoader(dataloader.DataLoader):
-    """ Dataloader that reuses workers
+    """Dataloader that reuses workers
 
     Uses same syntax as vanilla DataLoader
     """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        object.__setattr__(self, 'batch_sampler', _RepeatSampler(self.batch_sampler))
+        object.__setattr__(self, "batch_sampler", _RepeatSampler(self.batch_sampler))
         self.iterator = super().__iter__()
 
     def __len__(self):
@@ -27,7 +27,7 @@ class InfiniteDataLoader(dataloader.DataLoader):
 
 
 class _RepeatSampler:
-    """ Sampler that repeats forever
+    """Sampler that repeats forever
 
     Args:
         sampler (Sampler)
@@ -48,7 +48,6 @@ def create_dataloader(**kwargs):
 
 
 class LoadDataset:
-
     def __init__(self, **kwargs):
         """
         Initialize Dataset based on different type e.g. blender, liff, etc

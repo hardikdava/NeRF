@@ -1,11 +1,10 @@
 import os
 import sys
-from typing import List, Dict
+from typing import Dict, List
 
 MODES = ["train", "predict", "export"]
 
-CLI_HELP_MSG = \
-    f"""
+CLI_HELP_MSG = f"""
     Arguments received: {str(['nerf'] + sys.argv[1:])}. 'nerf' commands use the following syntax:
 
         nerf MODE ARGS
@@ -16,6 +15,7 @@ CLI_HELP_MSG = \
     1. Train a detection model for 10 epochs with an initial learning_rate of 0.01
         vision train data=train_cfg.yaml model="model.yaml" epochs=10 lr0=0.01
     """
+
 
 def extract_info(args: List[str], key: str, split="="):
     for arg in args:
@@ -32,7 +32,7 @@ def find_help(args) -> bool:
 
 
 def main(debug="") -> None:
-    args = (debug.split(' ') if debug else sys.argv)[1:]
+    args = (debug.split(" ") if debug else sys.argv)[1:]
     if not args:  # no arguments passed
         print(CLI_HELP_MSG)
         return
@@ -41,10 +41,3 @@ def main(debug="") -> None:
     mode = extract_info(args, key="mode")
 
     # DO TRAIN, VALID, PREDICT, EXPORT from here based on command
-
-
-
-
-
-
-

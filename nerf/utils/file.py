@@ -1,9 +1,10 @@
 import glob
 import json
 from pathlib import Path
-from typing import Optional, Union, List
-import yaml
+from typing import List, Optional, Union
+
 import numpy as np
+import yaml
 
 
 def read_yaml_file(file_path: str) -> dict:

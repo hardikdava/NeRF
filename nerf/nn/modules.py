@@ -1,14 +1,14 @@
-import torch
 import os
+
+import numpy as np
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import numpy as np
 from nerf.utils.file import read_yaml_file
 
 
 class NeRF(nn.Module):
-
     def __init__(self, model_cfg):
         super(NeRF, self).__init__()
 
@@ -21,7 +21,9 @@ class NeRF(nn.Module):
             self.model_width = cfg.get("model_width", 256)
             self.input_channel = cfg.get("input_channel", 3)
             self.output_channel = cfg.get("output_channel", 4)
-            self.activation = cfg.get("nn", nn.ReLU())  # Choose activation function here
+            self.activation = cfg.get(
+                "nn", nn.ReLU()
+            )  # Choose activation function here
             self._create_model()
             initialize_weights(self)
         elif ext in [".pth", ".pt"]:
@@ -47,7 +49,9 @@ class NeRF(nn.Module):
         return [val.cpu().numpy() for _, val in self.model.state_dict().items()]
 
     def forward(self, x):
-        input_pts, input_views = torch.split(x, [self.input_channel, self.input_channel], dim=-1)
+        input_pts, input_views = torch.split(
+            x, [self.input_channel, self.input_channel], dim=-1
+        )
         h = input_pts
         for i, l in enumerate(self.pts_linears):
             h = self.pts_linears[i](h)
@@ -67,6 +71,5 @@ def initialize_weights(model):
 
 if __name__ == "__main__":
     model = NeRF(model_cfg="../../configs/model.yaml")
-    device = torch.device('cpu')
+    device = torch.device("cpu")
     model = model.to(device)
-
