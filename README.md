@@ -1,5 +1,12 @@
-# Python Template 🐍
+# NeRF (Neural Radiance Fields)
 A template repo holding our common setup for a python project.
+
+
+## Download Sample Data:
+
+```bash
+sh ./scripts/download_example_data.sh
+```
 
 ## Installation
 
