@@ -1,6 +1,7 @@
 import os
 import sys
 from typing import Dict, List
+from nerf import Trainer, Validator, Exporter, Predictor
 
 MODES = ["train", "predict", "export"]
 
@@ -36,7 +37,7 @@ def main(debug="") -> None:
     if not args:  # no arguments passed
         print(CLI_HELP_MSG)
         return
-    elif find_help(args):
+    elif find_help(debug):
         print("Help command found")
     mode = extract_info(args, key="mode")
 
