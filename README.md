@@ -30,5 +30,16 @@ or for development
 pip install -e ".[dev]"
 ```
 
+## Tools:
+
+If you have video sequence or sequence of frames from any camera source then prior to run `NeRF`, it is mandatory to get camera poses between camera frames. It can be achieved by using colmap.
+
+- Download [colmap2nerf](https://github.com/NVlabs/instant-ngp/blob/master/scripts/colmap2nerf.py)
+- Genrate camera poses from video sequence. This will also extract frames as per given argument.
+
+
+
+## Deployment:
+
 Please visit [deployment guideline](https://github.com/hardikdava/NeRF-Exp/blob/main/DEPLOYMENT.md) for integrating models into production.
 
