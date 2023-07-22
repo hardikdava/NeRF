@@ -3,7 +3,7 @@
 This repository is an implementation of NeRF based on pytorch. It has capability of easy to integrate other models as well.  Some of the key features are as following.
 
  - Easy installation for developers 
- - Easy deployment using onnx-runtime (No framework needed) 
+ - Easy deployment using onnx-runtime (No framework needed, depends on model) 
  - Integrate other models based on core modules.
  - Export models to various format e.g. onnx, openvino, tensorrt,
    coreml, etc.
