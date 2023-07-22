@@ -30,9 +30,33 @@ or for development
 pip install -e ".[dev]"
 ```
 
+
+### Usage:
+
+Command line usage:
+```bash
+nerf mode=predict model= "" video="" output="" resolution=800
+
+nerf mode=train model= "" data="" output="" resolution=800
+
+nerf mode=val model= "" data="" output="" resolution=800
+
+nerf mode=export model= "" output="" fp16=True resolution=800 format=onnx
+```
+
+Python usage:
+```python
+from nerf import nerf
+model = nerf(model="")
+model.train(data="", resolution=800, output_dir="")
+model.val(data="", resolution=800, output_dir="")
+model.export(data="", resolution=800, output_dir="", format="onnx")
+model.predict(data="", resolution=800, output_dir="")
+```
+
 ## Tools:
 
-If you have video sequence or sequence of frames from any camera source then prior to run `NeRF`, it is mandatory to get camera poses between camera frames. It can be achieved by using colmap.
+If you have video sequence or sequence of frames from any camera source then prior to run `NeRF`, it is suggested to get camera poses between camera frames. It can be achieved by using colmap though it can be based on model type. Some model do not require camera poses.
 
 - Download [colmap2nerf](https://github.com/NVlabs/instant-ngp/blob/master/scripts/colmap2nerf.py)
 - Genrate camera poses from video sequence. This will also extract frames as per given argument.
@@ -42,4 +66,5 @@ If you have video sequence or sequence of frames from any camera source then pri
 ## Deployment:
 
 Please visit [deployment guideline](https://github.com/hardikdava/NeRF-Exp/blob/main/DEPLOYMENT.md) for integrating models into production.
+
 
