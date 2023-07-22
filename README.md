@@ -21,7 +21,7 @@ sh ./scripts/download_example_data.sh
 You can install the package using pip
 
 ```bash
-pip install git+https://github.com/hardikdava/NeRF-Exp.git
+pip install git+https://github.com/hardikdava/NeRF.git
 ```
 
 or for development
@@ -33,7 +33,7 @@ pip install -e ".[dev]"
 
 ### Usage:
 
-Command line usage:
+**Command line usage:**
 ```bash
 nerf mode=predict model= "" video="" output="" resolution=800
 
@@ -44,7 +44,7 @@ nerf mode=val model= "" data="" output="" resolution=800
 nerf mode=export model= "" output="" fp16=True resolution=800 format=onnx
 ```
 
-Python usage:
+**Python usage:**
 ```python
 from nerf import nerf
 model = nerf(model="")
@@ -59,7 +59,7 @@ model.predict(data="", resolution=800, output_dir="")
 If you have video sequence or sequence of frames from any camera source then prior to run `NeRF`, it is suggested to get camera poses between camera frames. It can be achieved by using colmap though it can be based on model type. Some model do not require camera poses.
 
 - Download [colmap2nerf](https://github.com/NVlabs/instant-ngp/blob/master/scripts/colmap2nerf.py)
-- Genrate camera poses from video sequence. This will also extract frames as per given argument.
+- Generate camera poses from video sequence. This will also extract frames as per given argument.
 
 
 
@@ -68,3 +68,61 @@ If you have video sequence or sequence of frames from any camera source then pri
 Please visit [deployment guideline](https://github.com/hardikdava/NeRF-Exp/blob/main/DEPLOYMENT.md) for integrating models into production.
 
 
+## Project Structure:
+
+```bash
+.
+├── configs
+│   ├── default.yaml  # Default settings here
+│   └── hyps.yaml  # hypermeter configurations
+├── data  # Dataset Configurations File
+│   └── lego.yaml
+├── DEPLOYMENT.md
+├── examples
+│   └── onnx_infer.py  # ONNX-Runtime example API for non-trainable models
+├── experiments # Experiments logs directory for experiment management
+├── LICENSE
+├── nerf
+│   ├── dataset 
+│   │   ├── data_loader.py
+│   │   └── __init__.py
+│   ├── engine  
+│   │   ├── exporter.py
+│   │   ├── __init__.py
+│   │   ├── predictor.py
+│   │   ├── trainer.py
+│   │   └── validator.py
+│   ├── __init__.py
+│   ├── models  # Add new models here
+│   │   ├── instant-nerf.yaml
+│   │   └── nerf.yaml
+│   ├── nerf.py  # Entry point for usage
+│   ├── nn  # All machine learning functions here
+│   │   ├── __init__.py
+│   │   ├── loss.py  # Loss functions 
+│   │   ├── modules
+│   │   │   └── common.py  
+│   │   └── nerf_model.py  # model creation and weights loading, scalable for quantization
+│   └── utils
+│       ├── colmap_utils.py  # functions from colmap
+│       ├── file.py
+│       ├── __init__.py
+│       ├── logger.py  # Add new loggers here e.g. clearml, wandb, neptune, etc
+│       ├── metric.py  # Evaluation metrics
+│       ├── torch_utils.py 
+│       └── visualizer.py  # Different visualizer e.g. blender, Open3D, Opencv etc
+├── README.md
+├── requirements.txt   
+├── scripts
+│   └── download_example_data.sh  # Data download scripts
+├── setup.py 
+├── test
+│   └── hello_test.py # Tests files
+└── tools
+    ├── generate_mesh.py # from depth images to mesh file
+    └── images_to_pose_colmap.py # from video frames to camera pose
+```
+
+## LICENSE:
+
+## Citations:
