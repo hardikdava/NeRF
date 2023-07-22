@@ -7,14 +7,14 @@ Once the model is trained using `Trainer`, it can be exported into various model
 
 Using command line:
 ```bash
-nerf export engine="nerf_trained_exp_a.pt" imgsz=800
+nerf mode=export model="nerf_trained_exp_a.pt" resolution=800
 ```
 Using python script:
 ```
 from nerf import Exporter
 
 model = Exporter(...)
-model.export(imgsz=800, format="onnx", ...)
+model.export(resolution=800, format="onnx", ...)
 ```
 
 Once the model is exported in desired format then `nerf` package is not needed anymore though it can be used as well in production.
@@ -28,4 +28,5 @@ Exported model can be deployed in can be easily deployed in `onnx-runtime`. A sa
 - Nvidia Triron Inference Server
 - OpenVino Inference Server
 - Pytorch Inference Server
+
 
