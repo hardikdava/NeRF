@@ -1,4 +1,22 @@
+import glob
+
 import numpy as np
+from typing import Tuple
+
+
+def preprocess_video(video_path: str, output_dir: str) -> str:
+    """
+    Extract poses from video sequence and store frames using colmap
+    """
+
+
+def read_data(data_dir) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Read images from directory
+    Read pose from json file
+    """
+    img, poses = [], []
+    return img, poses
 
 
 class OnnxInfer:
@@ -12,7 +30,7 @@ class OnnxInfer:
 
     def load_network(self, model_path: str, device="cpu"):
         """
-        load model from defined path
+        load engine from defined path
         """
         pass
 
@@ -26,10 +44,13 @@ class OnnxInfer:
         """
         Only inference part here
         """
-    def predict(self, image):
-        processed_image = self._preprocess(image=image)
-        predictions = self._infer(processed_image=processed_image)
-        processed_predictions = self._postprocess(predictions)
+    def predict(self, data_dir):
+        images, poses = read_data(data_dir)
+
+        for image, pose in range(len(images)):
+            processed_image = self._preprocess(image=image)
+            predictions = self._infer(processed_image=processed_image)
+            processed_predictions = self._postprocess(predictions)
         return processed_predictions
 
     def _postprocess(self, predictions: np.ndarray):
@@ -48,7 +69,11 @@ class OnnxInfer:
 if __name__ == "__main__":
 
     model = OnnxInfer()
+
+
+    video_path = "..."
+    output_dir = model.preprocess_video(video_path)
+
     model.load_network()
-    img = (...)
-    predictions = model.predict(image=img)
+    predictions = model.predict(output_dir=output_dir)
     model.visualize(predictions=predictions)

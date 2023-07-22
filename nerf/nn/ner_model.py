@@ -1,3 +1,8 @@
+"""
+Script to assemble model based on model-yaml file
+"""
+
+
 import os
 
 import numpy as np
@@ -28,7 +33,7 @@ class NeRF(nn.Module):
             initialize_weights(self)
         elif ext in [".pth", ".pt"]:
             # Load from pretrained weights
-            # read from existing model dict
+            # read from existing engine dict
             pass
 
     def _create_model(self):
@@ -70,6 +75,6 @@ def initialize_weights(model):
 
 
 if __name__ == "__main__":
-    model = NeRF(model_cfg="../../configs/model.yaml")
+    model = NeRF(model_cfg="../../configs/engine.yaml")
     device = torch.device("cpu")
     model = model.to(device)

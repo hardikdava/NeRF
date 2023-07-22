@@ -5,7 +5,7 @@ from typing import Union
 import torch
 
 from nerf.dataset.data_loader import create_dataloader
-from nerf.nn.modules import NeRF
+from nerf.nn.ner_model import NeRF
 from nerf.utils.logger import Logger
 
 
@@ -55,17 +55,17 @@ class Trainer:
                 optimizer.step()
                 self.logger.info(loss)
 
-            self.save_model()  # Trigger model saving fn
+            self.save_model()  # Trigger engine saving fn
         self.model.eval()
-        self.valid()  # Validate model after training for final accuracy
+        self.valid()  # Validate engine after training for final accuracy
 
     def load_model(self, model_weights):
         """
-        Load model:
+        Load engine:
         option-1: From scratch and initialize random weights
         option-2: From pretrained weights for finetuning purpose
         """
-        self.model = NeRF(model_weights)  # Initialize model
+        self.model = NeRF(model_weights)  # Initialize engine
 
     def build_optimizer(self):
         """
@@ -76,15 +76,15 @@ class Trainer:
 
     def save_model(self):
         """
-        Define strategy for saving model mechanism
-        E.g. Every model, every nth model or best/last model
+        Define strategy for saving engine mechanism
+        E.g. Every engine, every nth engine or best/last engine
         """
         pass
 
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--cfg", type=str, default="", help="model.yaml path")
+    parser.add_argument("--cfg", type=str, default="", help="engine.yaml path")
     parser.add_argument(
         "--device", default="", help="cuda device, i.e. 0 or 0,1,2,3 or cpu"
     )

@@ -3,4 +3,4 @@ model_depth : 1.0
 input_channel : 3
 output_channel : 4
 input_ch_views : 3
-nn : nn.relu()
+activation : nn.relu()

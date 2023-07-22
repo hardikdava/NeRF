@@ -7,7 +7,7 @@ Once the model is trained using `Trainer`, it can be exported into various model
 
 Using command line:
 ```bash
-nerf export model="nerf_trained_exp_a.pt" imgsz=800
+nerf export engine="nerf_trained_exp_a.pt" imgsz=800
 ```
 Using python script:
 ```

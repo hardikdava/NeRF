@@ -1,5 +1,9 @@
-from nerf.nn.modules import NeRF
+"""
+Prediction from trained model
+"""
 
+from nerf.nn.ner_model import NeRF
+from nerf.utils.colmap_utils import preprocess_video
 
 class Predictor:
     def __init__(self, model_path: str):
@@ -7,7 +11,7 @@ class Predictor:
 
     def __call__(self, *args, **kwargs):
         """
-        Predict depends on model type
+        Predict depends on engine type
         e.g. load pytorch, onnx or other formats
         """
         pass
@@ -16,7 +20,7 @@ class Predictor:
         """
         Useful for batch prediction
         """
-        pass
+        preprocess_video()
 
     def annotate(self):
         """

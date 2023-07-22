@@ -1,0 +1,9 @@
+
+depth_multiple: 8.0
+width_multiple: 1.0
+activation : nn.relu()
+model:
+  [
+    [nerf],
+  ]
+

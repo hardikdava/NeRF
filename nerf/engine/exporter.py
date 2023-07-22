@@ -1,4 +1,8 @@
-from nerf.nn.modules import NeRF
+"""
+Export model in different model for inference accleration
+"""
+
+from nerf.nn.ner_model import NeRF
 
 
 class Exporter:
@@ -7,7 +11,7 @@ class Exporter:
 
     def export_onnx(self, **kwargs):
         """
-        Export model as onnx
+        Export engine as onnx
         """
         pass
 

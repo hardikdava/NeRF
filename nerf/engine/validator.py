@@ -1,15 +1,15 @@
-from nerf.nn.modules import NeRF
+from nerf.nn.ner_model import NeRF
 from nerf.utils.metric import validation_metric
 
 
 class Validator:
     """
-    Class to validate model
+    Class to validate engine
     """
 
     def __init__(self, model_path):
         """
-        Load model here
+        Load engine here
         """
         pass
 
