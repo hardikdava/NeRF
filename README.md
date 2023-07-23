@@ -133,13 +133,14 @@ activation: nn.ReLU()
 quantize_aware_training: False
 density_head:
 	-[[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]],
-		[mlp, [previous_node, next_node],[in, out, pad, stride]]]
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]],
+	 [mlp, [previous_node, next_node],[in, out, pad, stride]]]
+
 color_head:
 	-[[mlp, [previous_node, next_node],[in, out, pad, stride]],
 model:
