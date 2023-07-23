@@ -29,4 +29,16 @@ Exported model can be deployed in can be easily deployed in `onnx-runtime`. A sa
 - OpenVino Inference Server
 - Pytorch Inference Server
 
+**Deployment Proces:**
+
+```mermaid
+graph LR
+A[Camera Source] --> B[Pose Generation]
+B  -->  C[Preprocess]
+C  -->  D[Ray Generation]
+D  -->  E[Model Inferene/Prediction]
+E  -->  F[New View Generation, disparity map]
+F  -->  G[Camera Positions]
+G  -->  I[Save Result]
+```
 
