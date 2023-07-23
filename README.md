@@ -123,6 +123,30 @@ Please visit [deployment guideline](https://github.com/hardikdava/NeRF-Exp/blob/
     └── images_to_pose_colmap.py # from video frames to camera pose
 ```
 
+## Model File:
+
+```
+model_depth: d
+model_width: w
+resolution: r
+activation: nn.ReLU()
+quantize_aware_training: False
+density_head:
+	-[[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]],
+		[mlp, [previous_node, next_node],[in, out, pad, stride]]]
+color_head:
+	-[[mlp, [previous_node, next_node],[in, out, pad, stride]],
+model:
+	- [density_head, color_head]
+
+```
+
 ## LICENSE:
 
 ## Citations:
